@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Discord Reader",
+  "version": "0.0.1",
+  "action": {
+    "default_icon": "images/icon-32.png",
+    "default_title": "Click me",
+    "default_popup": "popup.html"
+  },
+  "description": "An options trading bot.",
+  "icons": {
+    "32": "images/icon-32.png",
+    "128": "images/icon-128.png"
+  },
+  "permissions": ["activeTab", "scripting", "contextMenus"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.discord.com/*", "http://localhost:5050/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": ["http://localhost:5050/*"]
+}
